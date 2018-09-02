@@ -31,7 +31,7 @@ import javax.persistence.Table;
             )
 })
 @Entity
-public class Employeedto {
+public class Employee {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
