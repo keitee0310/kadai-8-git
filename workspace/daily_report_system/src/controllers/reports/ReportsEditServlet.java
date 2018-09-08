@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Employee;
-import models.Report;
+import models.Employeedto;
+import models.Reportdto;
 import utils.DBUtil;
 
 /**
@@ -35,11 +35,11 @@ public class ReportsEditServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         EntityManager em = DBUtil.createEntityManager();
 
-        Report r = em.find(Report.class, Integer.parseInt(request.getParameter("id")));
+        Reportdto r = em.find(Reportdto.class, Integer.parseInt(request.getParameter("id")));
 
         em.close();
 
-        Employee login_employee = (Employee)request.getSession().getAttribute("login_employee");
+        Employeedto login_employee = (Employeedto)request.getSession().getAttribute("login_employee");
         if(login_employee.getId() == r.getEmployee().getId()) {
             request.setAttribute("report", r);
             request.setAttribute("_token", request.getSession().getId());

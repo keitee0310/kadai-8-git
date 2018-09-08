@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import models.Employee;
+import models.Employeedto;
 
 /**
  * Servlet Filter implementation class LoginFilter
@@ -44,7 +44,7 @@ public class LoginFilter implements Filter {
 
         if(!servlet_path.matches("/css.*")) {
             HttpSession session = ((HttpServletRequest)request).getSession();
-            Employee e = (Employee)session.getAttribute("login_employee");
+            Employeedto e = (Employeedto)session.getAttribute("login_employee");
 
             if(!servlet_path.equals("/login")) {
                 if(e == null) {

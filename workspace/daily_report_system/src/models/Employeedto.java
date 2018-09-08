@@ -15,23 +15,23 @@ import javax.persistence.Table;
 @NamedQueries({
     @NamedQuery(
             name = "getAllEmployees",
-            query = "SELECT e FROM Employee AS e ORDER BY e.id DESC"
+            query = "SELECT e FROM Employeedto AS e ORDER BY e.id DESC"
             ),
     @NamedQuery(
             name = "getEmployeesCount",
-            query = "SELECT COUNT(e) FROM Employee AS e"
+            query = "SELECT COUNT(e) FROM Employeedto AS e"
             ),
     @NamedQuery(
             name = "checkRegisteredCode",
-            query = "SELECT COUNT(e) FROM Employee AS e WHERE e.code = :code"
+            query = "SELECT COUNT(e) FROM Employeedto AS e WHERE e.code = :code"
             ),
     @NamedQuery(
             name = "checkLoginCodeAndPassword",
-            query = "SELECT e FROM Employee AS e WHERE e.delete_flag = 0 AND e.code = :code AND e.password = :pass"
+            query = "SELECT e FROM Employeedto AS e WHERE e.delete_flag = 0 AND e.code = :code AND e.password = :pass"
             )
 })
 @Entity
-public class Employee {
+public class Employeedto {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Employee;
+import models.Employeedto;
 import utils.DBUtil;
 
 /**
@@ -36,7 +36,7 @@ public class EmployeesDestroyServlet extends HttpServlet {
         if(_token != null && _token.equals(request.getSession().getId())) {
             EntityManager em = DBUtil.createEntityManager();
 
-            Employee e = em.find(Employee.class, (Integer)(request.getSession().getAttribute("employee_id")));
+            Employeedto e = em.find(Employeedto.class, (Integer)(request.getSession().getAttribute("employee_id")));
             e.setDelete_flag(1);
             e.setUpdated_at(new Timestamp(System.currentTimeMillis()));
 

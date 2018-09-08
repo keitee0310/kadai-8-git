@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Employee;
+import models.Employeedto;
 import utils.DBUtil;
 
 /**
@@ -39,7 +39,7 @@ public class EmployeesIndexServlet extends HttpServlet {
         try{
             page = Integer.parseInt(request.getParameter("page"));
         } catch(NumberFormatException e) { }
-        List<Employee> employees = em.createNamedQuery("getAllEmployees", Employee.class)
+        List<Employeedto> employees = em.createNamedQuery("getAllEmployees", Employeedto.class)
                                      .setFirstResult(15 * (page - 1))
                                      .setMaxResults(15)
                                      .getResultList();

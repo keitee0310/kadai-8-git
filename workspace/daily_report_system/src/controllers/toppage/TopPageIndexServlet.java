@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Employee;
-import models.Report;
+import models.Employeedto;
+import models.Reportdto;
 import utils.DBUtil;
 
 /**
@@ -46,7 +46,7 @@ public class TopPageIndexServlet extends HttpServlet {
         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             EntityManager em = DBUtil.createEntityManager();
     
-            Employee login_employee = (Employee)request.getSession().getAttribute("login_employee");
+            Employeedto login_employee = (Employeedto)request.getSession().getAttribute("login_employee");
     
             int page;
             try{
@@ -54,7 +54,7 @@ public class TopPageIndexServlet extends HttpServlet {
             } catch(Exception e) {
                 page = 1;
             }
-            List<Report> reports = em.createNamedQuery("getMyAllReports", Report.class)
+            List<Reportdto> reports = em.createNamedQuery("getMyAllReports", Reportdto.class)
                                       .setParameter("employee", login_employee)
                                       .setFirstResult(15 * (page - 1))
                                       .setMaxResults(15)

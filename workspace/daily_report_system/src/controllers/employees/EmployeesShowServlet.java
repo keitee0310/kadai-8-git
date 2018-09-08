@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Employee;
+import models.Employeedto;
 import utils.DBUtil;
 
 /**
@@ -34,7 +34,7 @@ public class EmployeesShowServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         EntityManager em = DBUtil.createEntityManager();
 
-        Employee e = em.find(Employee.class, Integer.parseInt(request.getParameter("id")));
+        Employeedto e = em.find(Employeedto.class, Integer.parseInt(request.getParameter("id")));
 
         em.close();
 

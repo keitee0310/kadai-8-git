@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Employee;
+import models.Employeedto;
 import models.validators.EmployeeValidator;
 import utils.DBUtil;
 import utils.EncryptUtil;
@@ -40,7 +40,7 @@ public class EmployeesUpdateServlet extends HttpServlet {
         if(_token != null && _token.equals(request.getSession().getId())) {
             EntityManager em = DBUtil.createEntityManager();
 
-            Employee e = em.find(Employee.class, (Integer)(request.getSession().getAttribute("employee_id")));
+            Employeedto e = em.find(Employeedto.class, (Integer)(request.getSession().getAttribute("employee_id")));
 
             Boolean code_duplicate_check = true;
             if(e.getCode().equals(request.getParameter("code"))) {

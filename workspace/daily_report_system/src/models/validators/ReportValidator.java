@@ -3,10 +3,10 @@ package models.validators;
 import java.util.ArrayList;
 import java.util.List;
 
-import models.Report;
+import models.Reportdto;
 
 public class ReportValidator {
-    public static List<String> validate(Report r) {
+    public static List<String> validate(Reportdto r) {
         List<String> errors = new ArrayList<String>();
 
         String title_error = _validateTitle(r.getTitle());

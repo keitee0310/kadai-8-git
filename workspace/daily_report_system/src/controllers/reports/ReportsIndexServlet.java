@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Report;
+import models.Reportdto;
 import utils.DBUtil;
 
 /**
@@ -41,7 +41,7 @@ public class ReportsIndexServlet extends HttpServlet {
         } catch(Exception e) {
             page = 1;
         }
-        List<Report> reports = em.createNamedQuery("getAllReports", Report.class)
+        List<Reportdto> reports = em.createNamedQuery("getAllReports", Reportdto.class)
                                   .setFirstResult(15 * (page - 1))
                                   .setMaxResults(15)
                                   .getResultList();

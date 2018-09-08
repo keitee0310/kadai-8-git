@@ -22,23 +22,23 @@ import javax.persistence.Table;
 @NamedQueries({
     @NamedQuery(
             name = "getAllReports",
-            query = "SELECT r FROM Report AS r ORDER BY r.id DESC"
+            query = "SELECT r FROM Reportdto AS r ORDER BY r.id DESC"
             ),
     @NamedQuery(
             name = "getReportsCount",
-            query = "SELECT COUNT(r) FROM Report AS r"
+            query = "SELECT COUNT(r) FROM Reportdto AS r"
             ),
     @NamedQuery(
             name = "getMyAllReports",
-            query = "SELECT r FROM Report AS r WHERE r.employee = :employee ORDER BY r.id DESC"
+            query = "SELECT r FROM Reportdto AS r WHERE r.employee = :employee ORDER BY r.id DESC"
             ),
     @NamedQuery(
             name = "getMyReportsCount",
-            query = "SELECT COUNT(r) FROM Report AS r WHERE r.employee = :employee"
+            query = "SELECT COUNT(r) FROM Reportdto AS r WHERE r.employee = :employee"
             )
 })
 @Entity
-public class Report {
+public class Reportdto {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,7 +46,7 @@ public class Report {
 
     @ManyToOne
     @JoinColumn(name = "employee_id", nullable = false)
-    private Employee employee;
+    private Employeedto employee;
 
     @Column(name = "report_date", nullable = false)
     private Date report_date;
@@ -72,11 +72,11 @@ public class Report {
         this.id = id;
     }
 
-    public Employee getEmployee() {
+    public Employeedto getEmployee() {
         return employee;
     }
 
-    public void setEmployee(Employee employee) {
+    public void setEmployee(Employeedto employee) {
         this.employee = employee;
     }
 
